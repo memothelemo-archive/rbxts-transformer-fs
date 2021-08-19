@@ -1,5 +1,7 @@
 # rbxts-transformer-path
 
+**DEPRECATION WARNING: rbxts-transformer-path has been renamed to rbxts-transformer-fs and version reset to 1.0.0. Use it at your risk**
+
 A transformer designed for roblox-ts that allows to convert from filesystem project paths to pure Roblox tree structure (rojo required)
 
 ```ts
