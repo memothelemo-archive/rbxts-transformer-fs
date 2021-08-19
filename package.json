@@ -1,6 +1,6 @@
 {
 	"name": "rbxts-transformer-path",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"main": "out/index.js",
 	"license": "MIT",
 	"author": "memothelemo",
@@ -11,10 +11,10 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/memothelemo/rbxts-transformer-path"
+		"url": "https://github.com/memothelemo/rbxts-transformer-fs"
 	},
 	"bugs": {
-		"url": "https://github.com/memothelemo/rbxts-transformer-path/issues"
+		"url": "https://github.com/memothelemo/rbxts-transformer-fs/issues"
 	},
 	"devDependencies": {
 		"@types/node": "^16.4.1",
