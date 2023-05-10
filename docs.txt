@@ -1,0 +1,223 @@
+import {} from "@rbxts/types";
+
+/**
+ * Reads the file contents from the specified path. If it does
+ * not exists or if it is a directory, it will return undefined.
+ *
+ * @param path File system path to read the file contents optionally
+ */
+export function $readOptional(path: string): string | undefined;
+
+/**
+ * Reads the file contents from the specified path. If it does
+ * not exists or if it is a directory, it will throw an error
+ * to the transformer and send it to roblox-ts compiler.
+ *
+ * @param path File system path to read the file contents
+ */
+export function $read(path: string): string;
+
+/**
+ * Requires specific file path, throws out an error if it does not exists.
+ * @param path File system to require in order to compile successfully
+ */
+export function $expectFile(path: string, message?: string);
+
+/**
+ * Checks if specified directory path exists, it will transform to false if
+ * it does not exists otherwise it will transform to true.
+ *
+ * **Input:**
+ * ```ts
+ * import { $dirExists } from "rbxts-transformer-fs";
+ *
+ * if ($dirExists("hello.txt")) {
+ *  print("Whoops!");
+ * } else {
+ *  print("Nope!");
+ * }
+ * ```
+ *
+ * **Output (assuming hello.txt exists)**:
+ * ```lua
+ * if true then
+ *  print("Whoops!")
+ * else
+ *  print("Nope!")
+ * end
+ * ```
+ *
+ * @param path Directory path to check whether it has something inside!
+ */
+export function $dirExists(path: string): boolean;
+
+/**
+ * Checks if specified file path exists, it will transform to false if
+ * it does not exists otherwise it will transform to true.
+ *
+ * **Input:**
+ * ```ts
+ * import { $fileExists } from "rbxts-transformer-fs";
+ *
+ * if ($fileExists("hello.txt")) {
+ *  print("Whoops!");
+ * } else {
+ *  print("Nope!");
+ * }
+ * ```
+ *
+ * **Output (assuming hello.txt exists)**:
+ * ```lua
+ * if true then
+ *  print("Whoops!")
+ * else
+ *  print("Nope!")
+ * end
+ * ```
+ *
+ * @param path File path to check whether it has something inside!
+ */
+export function $fileExists(path: string): boolean;
+
+/**
+ * Checks if specified path (whether file or directory) exists,
+ * it will transform to false if it does not exists otherwise
+ * it will transform to true.
+ *
+ * **Input:**
+ * ```ts
+ * import { $pathExists } from "rbxts-transformer-fs";
+ *
+ * if ($pathExists("hello.txt")) {
+ *  print("Whoops!");
+ * } else {
+ *  print("Nope!");
+ * }
+ * ```
+ *
+ * **Output (assuming hello.txt exists)**:
+ * ```lua
+ * if true then
+ *  print("Whoops!")
+ * else
+ *  print("Nope!")
+ * end
+ * ```
+ *
+ * @param path File system path to check whether it has something inside!
+ */
+export function $pathExists(path: string): boolean;
+
+/**
+ * It replaces file system path relative to the current
+ * project you're building with into Roblox tree structure.
+ * Take note that the output of Roblox tree structure from
+ * file system path will differ depending on how configure
+ * it with Rojo.
+ *
+ * If that path doesn't exists or not in Rojo project
+ * configuration, it will throw an error to rbxtsc
+ * preventing it to compile into an invalid input.
+ *
+ * **Note**: Unlike `$instanceAny`, it does evaluate
+ * the expected tree structure from a type argument
+ * and throws an error in runtime if these expectations are failed.
+ *
+ * **Example (if you don't get what I mean)**:
+ * ```ts
+ * import { $instance, $instanceAny } from "rbxts-transformer-fs";
+ *
+ * // Let's say we have a billboard that contains a decal named
+ * // "Advertisement" and a PointLight object named "Light".
+ * interface Billboard extends Folder {
+ *  Advertisement: Decal;
+ *  Light: PointLight;
+ * }
+ *
+ * // This is not going to evaluate deeply if the
+ * // structure of Billboard type matches with your
+ * // targetted path / file.
+ * $instanceAny<Billboard>("assets/billboard.rbxmx");
+ *
+ * // This one, will evaluate if the structure of
+ * // Billboard type matches with your targetted path or file.
+ * $instance<Billboard>("assets/billboard.rbxmx");
+ * ```
+ *
+ * @param path File system path to be converted to Roblox tree
+ */
+export function $instance<T extends Instance = Instance>(path: string): T;
+
+/**
+ * It replaces file system path relative to the current
+ * project you're building with into Roblox tree structure.
+ * Take note that the output of Roblox tree structure from
+ * file system path will differ depending on how configure
+ * it with Rojo.
+ *
+ * If that path doesn't exists or not in Rojo project
+ * configuration, it will throw an error to rbxtsc
+ * preventing it to compile into an invalid input.
+ *
+ * **Note**: Unlike `$instance`, it does not evaluate
+ * the expected tree structure from a type argument
+ * and throws an error in runtime if these expectations are failed.
+ *
+ * **Example (if you don't get what I mean)**:
+ * ```ts
+ * import { $instance, $instanceAny } from "rbxts-transformer-fs";
+ *
+ * // Let's say we have a billboard that contains a decal named
+ * // "Advertisement" and a PointLight object named "Light".
+ * interface Billboard extends  {
+ *  Advertisement: Decal;
+ *  Light: PointLight;
+ * }
+ *
+ * // This is not going to evaluate deeply if the
+ * // structure of Billboard type matches with your
+ * // targetted path / file.
+ * $instanceAny<Billboard>("assets/billboard.rbxmx");
+ *
+ * // This one, will evaluate if the structure of
+ * // Billboard type matches with your targetted path or file.
+ * $instance<Billboard>("assets/billboard.rbxmx");
+ * ```
+ *
+ * @param path File system path to be converted to Roblox tree
+ */
+export function $instanceAny<T extends Instance = Instance>(path: string): T;
+
+/**
+ * Functions the same as `$instance` but it functions the
+ * same as `:WaitForChild` method.
+ */
+export function $instanceWait<T extends Instance = Instance>(
+  path: string,
+  timeout?: number,
+): T;
+
+/**
+ * Functions the same as `$instanceAny` but it functions the
+ * same as `:WaitForChild` method.
+ */
+export function $instanceAnyWait<T extends Instance = Instance>(
+  path: string,
+  timeout?: number,
+): T;
+
+/**
+ * Gets the file hash from a specified file
+ */
+export function $fileHash(
+  path: string,
+  alg: "sha1" | "sha128" | "sha256" | "sha512" | "md5",
+): string;
+
+// Deprecated stuff
+/**
+ * Gets the file contents from filesystem path
+ * @param path Filesystem path
+ * @deprecated Use `$read(filePath)` instead
+ */
+export function $fileContents(path: string): string;

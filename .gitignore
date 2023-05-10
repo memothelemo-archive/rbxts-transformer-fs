@@ -1,0 +1,15 @@
+# Built directories
+**/node_modules
+**/out
+
+# Build files
+*.tgz
+
+# rbxts dump
+**/include
+
+# Logs
+*.log
+
+# Typescript cache
+*.tsbuildinfo

@@ -1,0 +1,12 @@
+# Unnecessary directories
+src
+.github
+
+# Unnecessary files
+*.tgz
+tsconfig.json
+.eslintignore
+.eslintrc.json
+
+# Bun
+bun.lockb

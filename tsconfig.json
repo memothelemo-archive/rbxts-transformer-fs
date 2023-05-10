@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "ES3",
+    "module": "commonjs",
+    "outDir": "out",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["@types/node"]
+	},
+  "exclude": [
+    "test/**"
+  ]
+}
