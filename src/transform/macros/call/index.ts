@@ -14,7 +14,10 @@ import {
   transformCallMacroExpectPath,
 } from "./expect";
 import { transformCallMacroHashFile } from "./hashFile";
-import { transformCallMacroRead, transformCallMacroReadOptional } from "./read";
+import {
+  transformCallMacroRead as transformCallMacroReadFile,
+  transformCallMacroReadOptional as transformCallMacroReadFileOptional,
+} from "./read";
 
 export type CallMacro = (
   ctx: TransformContext,
@@ -45,8 +48,8 @@ export function getTransformerCallMacroDecl(
 export const CALL_MACROS: {
   [K in string]?: CallMacro;
 } = {
-  $read: transformCallMacroRead,
-  $readOptional: transformCallMacroReadOptional,
+  $readFile: transformCallMacroReadFile,
+  $readFileOpt: transformCallMacroReadFileOptional,
 
   $hashFile: transformCallMacroHashFile,
 

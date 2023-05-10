@@ -1,7 +1,7 @@
 import {} from "@rbxts/types";
 
-export function $readOptional(path: string): string | undefined;
-export function $read(path: string): string;
+export function $readFileOpt(path: string): string | undefined;
+export function $readFile(path: string): string;
 
 /** Probably copied from `rbxts-transform-debug` */
 export const $CURRENT_FILE_NAME: string;
