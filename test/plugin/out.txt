@@ -1,0 +1,144 @@
+yarn run v1.22.19
+$ rm -rf out && rbxtsc --verbose
+copy include files ( 7 ms )
+copy non-compiled files ( 1 ms )
+compiling as model..
+running transformers..[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m: Creating transform state
+[[95mTRACE[39m] [1mrbxts-transformer-fs[22m:  ├─ Searching rojo config file path from the directory
+[[92mINFO [39m] [1mrbxts-transformer-fs[22m:  ├─ Loading Rojo project; selectedPath = [1mdefault.project.json[22m
+[[92mINFO [39m] [1mrbxts-transformer-fs[22m:  ├─ Successfully loaded Rojo project; rojoResolver.isGame = [1mfalse[22m
+[[95mTRACE[39m] [1mrbxts-transformer-fs[22m:  ├─ Loading symbols for rbxts-transformer-fs
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (1:30): [1m$readFileOpt[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (3:63): [1m$readFile[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded identifier macro symbol (7:12): [1m$CURRENT_FILE_NAME[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (7:40): [1m$expectFile[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (9:66): [1m$expectDir[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (10:65): [1m$expectPath[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (11:66): [1m$dirExists[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (13:50): [1m$fileExists[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (14:51): [1m$pathExists[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (15:51): [1m$instance[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (17:74): [1m$instanceAny[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (18:77): [1m$waitForInstance[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (20:99): [1m$waitForInstanceAny[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (21:102): [1m$hashFile[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (23:102): [1m$fileContents[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (29:52): [1m$requireFile[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Loaded call macro symbol (33:49): [1m$fileName[22m
+[[95mTRACE[39m] [1mrbxts-transformer-fs[22m:  ├─ Loading symbols done
+[[92mINFO [39m] [1mrbxts-transformer-fs[22m:  ├─ Setting up macro symbols
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for identifier macro: [1m$CURRENT_FILE_NAME[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for call macro: [1m$readFile[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for call macro: [1m$readFileOpt[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for call macro: [1m$pathExists[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for call macro: [1m$dirExists[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for call macro: [1m$fileExists[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for call macro: [1m$expectPath[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for call macro: [1m$expectDir[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for call macro: [1m$expectFile[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for deprecated call macro: [1m$fileName[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for deprecated call macro: [1m$fileContents[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for deprecated call macro: [1m$requireFile[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Looking for call macro: [1m$hashFile[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m: Successfully created transformer state
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m: Transforming file; path = [1msrc/index.server.ts[22m, file.kind = [1mSourceFile[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├─ Found transformer import; stripping it off
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├─ Found call macro at line 1 on column 38
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Transforming call macro...
+[[95mTRACE[39m] [1mrbxts-transformer-fs[22m:  ├───── Checking for path: [1m..[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── End of transforming identifier macro
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├─ Found call macro at line 3 on column 20
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Transforming call macro...
+[[95mTRACE[39m] [1mrbxts-transformer-fs[22m:  ├───── Checking for path: [1msrc/index.server.ts[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── End of transforming identifier macro
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├─ Found call macro at line 4 on column 36
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Transforming call macro...
+[[95mTRACE[39m] [1mrbxts-transformer-fs[22m:  ├───── Checking for path: [1msrc/index.server.ts[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── End of transforming identifier macro
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├─ Found call macro at line 5 on column 36
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Transforming call macro...
+[[95mTRACE[39m] [1mrbxts-transformer-fs[22m:  ├───── Checking for path: [1msrc/index.server.ts[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── End of transforming identifier macro
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├─ Found call macro at line 8 on column 12
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── Transforming call macro...
+[[95mTRACE[39m] [1mrbxts-transformer-fs[22m:  ├───── Checking for path: [1m..[22m
+[[96mDEBUG[39m] [1mrbxts-transformer-fs[22m:  ├───── End of transforming identifier macro
+ ( 3058 ms )
+1/1 compile src/index.server.tsimport type fs from "rbxts-transformer-fs";
+true;
+const that = undefined as unknown as void;
+function getInstanceFromPath<T>(entries: string[], waitFor = false, timeout?: number) {
+    let currentIndex = 0;
+    let lastParent: Instance;
+    let currentObject: Instance | undefined;
+    let modified = true;
+    switch (entries[0]) {
+        case "StarterPlayer":
+            currentObject = game.GetService("Players").LocalPlayer;
+            lastParent = currentObject;
+            switch (entries[1]) {
+                case "StarterCharacterScripts":
+                    const character = (currentObject as Player).Character;
+                    if (!character) {
+                        error("[rbxts-transformer-fs]: The character isn't loaded but referenced from StarterCharacterScripts", 2);
+                    }
+                    currentObject = character;
+                    lastParent = character;
+                    break;
+                case "StarterPlayerScripts":
+                    const scripts = (currentObject as Player & {
+                        PlayerScripts: PlayerScripts;
+                    }).PlayerScripts;
+                    currentObject = scripts;
+                    lastParent = scripts;
+                    break;
+                default: error(`[rbxts-transformer-fs]: ${entries[1]} is not a member of StarterPlayer!`);
+            }
+            break;
+        case "StarterGui":
+            const gui = (currentObject as Player).FindFirstChild("PlayerGui");
+            if (!gui) {
+                error("[rbxts-transformer-fs]: PlayerGui isn't loaded but referenced from PlayerGui");
+            }
+            currentObject = gui;
+            lastParent = currentObject;
+            break;
+        case "StarterPack":
+            const backpack = (currentObject as Player & {
+                Backpack: Backpack;
+            }).Backpack;
+            currentObject = backpack;
+            lastParent = currentObject;
+            break;
+        default:
+            modified = false;
+            break;
+    }
+    if (modified) {
+        entries.remove(0);
+        entries.remove(0);
+    }
+    while (currentIndex < entries.size() && currentObject !== undefined) {
+        lastParent = currentObject;
+        currentObject = waitFor ? currentObject.WaitForChild(entries[currentIndex], timeout as number) : currentObject.FindFirstChild(entries[currentIndex]);
+        currentIndex++;
+    }
+    if (currentObject === undefined) {
+        entries.unshift("Hello");
+        error(`[rbxts-transformer-fs]: Cannot find ${entries.join(".")} because ${entries[currentIndex]} is not a child of ${lastParent.GetFullName()}`, 2);
+    }
+    return currentObject as unknown as T;
+}
+
+ ( 180 ms )
+[96msrc/index.server.ts[0m:[93m6[0m:[93m1[0m - [93mwarning[0m[90m TS rbxts-transformer-fs: [0m$requireFile is deprecated, use $expectFile instead.
+
+[7m6[0m fs.$requireFile("./index.server.ts");
+[7m [0m [93m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[96msrc/index.server.ts[0m:[93m62[0m:[93m126[0m - [91merror[0m[90m TS2454: [0mVariable 'lastParent' is used before being assigned.
+
+[7m62[0m         error(`[rbxts-transformer-fs]: Cannot find ${entries.join(".")} because ${entries[currentIndex]} is not a child of ${lastParent.GetFullName()}`, 2);
+[7m  [0m [91m                                                                                                                             ~~~~~~~~~~[0m
+
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

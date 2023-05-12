@@ -10,7 +10,14 @@
     "link": "npm run link:prepare && npm run link:game && npm run link:plugin",
     "prepack": "yarn build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "tsc --w"
+    "watch": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/memothelemo/rbxts-transformer-fs"
+  },
+  "bugs": {
+    "url": "https://github.com/memothelemo/rbxts-transformer-fs/issues"
   },
   "keywords": [],
   "author": "",
@@ -34,5 +41,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8",
     "ts-expose-internals": "4.9.5"
-  }
+  },
+  "files": [
+    "out"
+  ]
 }

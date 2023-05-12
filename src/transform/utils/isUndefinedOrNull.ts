@@ -1,6 +1,6 @@
 import ts from "typescript";
-import { TransformContext } from "../../context";
+import TransformerState from "../state";
 
-export function isUndefinedOrNull(ctx: TransformContext, node: ts.Expression) {
-  return ctx.getType(node).isNullableType();
+export function isUndefinedOrNull(state: TransformerState, node: ts.Expression) {
+  return state.getType(node).isNullableType();
 }

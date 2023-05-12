@@ -1,12 +1,10 @@
 import ts from "typescript";
-import { TransformContext } from "../../context";
-import { Diagnostics, throwWithDiagnostic } from "./diagnostics";
+import { ErrorKind, throwErr } from "../../core/error";
+import TransformerState from "../state";
+// import { Diagnostics, throwWithDiagnostic } from "./diagnostics";
 
-export function getLiteralStringLike(ctx: TransformContext, node?: ts.Node) {
-  if (
-    node === undefined ||
-    !(ts.isIdentifier(node) || ts.isStringLiteralLike(node))
-  ) {
+export function getLiteralStringLike(state: TransformerState, node?: ts.Node) {
+  if (node === undefined || !(ts.isIdentifier(node) || ts.isStringLiteralLike(node))) {
     return undefined;
   }
 
@@ -15,9 +13,10 @@ export function getLiteralStringLike(ctx: TransformContext, node?: ts.Node) {
     return ts.stripQuotes(text);
   }
 
-  const type = ctx.getType(node);
+  const type = state.getType(node);
   if (!type) {
-    throwWithDiagnostic(Diagnostics.UNKNOWN_TYPE(node));
+    throwErr(ErrorKind.NotImplemented);
+    // throwWithDiagnostic(Diagnostics.UNKNOWN_TYPE(node));
   }
 
   if (type.flags !== ts.TypeFlags.StringLiteral) {
