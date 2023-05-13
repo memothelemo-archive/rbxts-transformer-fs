@@ -16,7 +16,20 @@ const main: TransformerEntry = (program, rawCfg) => {
       Log.setFromConfig(config);
       return new TransformerState(config, program, context);
     });
-    return file => transformSourceFile(state, file);
+
+    // The downside of using preloading symbols is that the
+    // transformer has to expect that index.d.ts must be included
+    // in TypeScript program's source files.
+    //
+    // So I put a cheap  condition if index.d.ts is not loaded
+    // from the project then it will not going to perform
+    // any transformations whatsoever.
+    if (state.canTransform()) {
+      return file => transformSourceFile(state, file);
+    } else {
+      Log.warn("This transformer is disabled temporarily (unused from the project)");
+      return file => file;
+    }
   };
 };
 

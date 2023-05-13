@@ -2,7 +2,6 @@ import ansi from "ansi-colors";
 import ts from "typescript";
 
 import { PACKAGE_NAME } from "../core/constants";
-import { ErrorKind, throwErr } from "../core/error";
 import Log, { LogLevel } from "../core/logging";
 import { assert } from "../core/utils/assert";
 import getPositionOfNode from "../core/utils/getPositionFromNode";
@@ -48,18 +47,18 @@ export default class SymbolProvider {
 
     let hasIndexFile = false;
     for (const file of this.state.program.getSourceFiles()) {
+      if (Log.canLog(LogLevel.Debug)) {
+        Log.debug(`Current file (loop): ${this.state.relativeToProjectDir(file.resolvedPath)}`);
+      }
       if (this.state.isTransformerIndexFile(file)) {
         hasIndexFile = true;
         this.loadSymbolsWithFile(file);
         break;
       }
     }
-    if (!hasIndexFile) {
-      throwErr(ErrorKind.IndexFileNotResolved);
-    }
-
     Log.popIndent();
     Log.trace("Loading symbols done");
+    this.loaded = hasIndexFile;
   }
 
   private loadSymbolsWithFile(file: ts.SourceFile) {

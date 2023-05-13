@@ -5,11 +5,14 @@
   "scripts": {
     "build": "tsc",
     "link:prepare": "npm link",
-    "link:game": "cd test/game && bun install && npm link rbxts-transformer-fs",
-    "link:plugin": "cd test/plugin && bun install && npm link rbxts-transformer-fs",
-    "link": "npm run link:prepare && npm run link:game && npm run link:plugin",
+    "link:sandbox": "cd tests/sandbox && yarn install && npm link rbxts-transformer-fs",
+    "link:unit": "cd tests/unit && yarn install && npm link rbxts-transformer-fs",
+    "link:all": "npm run link:prepare && npm run link:sandbox && npm run link:unit",
     "prepack": "yarn build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build && npm run test:sandbox-build && npm run test:unit-setup && npm run test:unit-run",
+    "test:sandbox-build": "cd tests/sandbox && npm run build",
+    "test:unit-setup": "cd tests/unit && npm run build && rojo build -o test.rbxlx",
+    "test:unit-run": "cd tests/unit && run-in-roblox --place ./test.rbxlx --script ./out/main.server.lua",
     "watch": "tsc --watch"
   },
   "repository": {

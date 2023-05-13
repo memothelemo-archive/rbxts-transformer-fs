@@ -1,17 +1,16 @@
 {
-  "name": "game",
+  "name": "sandbox",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf out && rbxtsc"
+    "build": "rm -rf out && rbxtsc --verbose"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@rbxts/compiler-types": "2.0.4-types.1",
-    "@rbxts/types": "^1.0.679",
-    "typescript": "^5.0.4"
+    "@rbxts/types": "^1.0.679"
   }
 }

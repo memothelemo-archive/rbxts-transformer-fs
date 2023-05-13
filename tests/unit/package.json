@@ -1,0 +1,19 @@
+{
+  "name": "unit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rbxtsc",
+    "watch": "rbxtsc -w"
+  },
+  "devDependencies": {
+    "@rbxts/compiler-types": "^2.1.0-types.1",
+    "@rbxts/types": "^1.0.683",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@rbxts/services": "^1.5.1",
+    "@rbxts/testez": "^0.4.2-ts.0"
+  }
+}

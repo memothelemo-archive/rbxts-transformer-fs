@@ -8,7 +8,7 @@ import Log, { LogLevel } from "../core/logging";
 import { assert } from "../core/utils/assert";
 import PathTranslator from "../classes/pathTranslator";
 import SymbolProvider from "../classes/symbolProvider";
-import { getRbxtsCmdLine } from "../rbxtsc/commandLine";
+import { RbxtsCommandLine } from "../rbxtsc/commandLine";
 import { INDEX_DTS_PATH, INDEX_DTS_SRC } from "../core/constants";
 import { CallMacro, IdentifierMacro } from "./macros/types";
 import { IDENTIFIER_MACROS } from "./macros/identifier";
@@ -33,18 +33,17 @@ export default class TransformerState {
     public readonly program: ts.Program,
     public readonly context: ts.TransformationContext,
   ) {
+    // Getting command line from process entry arguments
+    const cmdLine = RbxtsCommandLine;
+    if (cmdLine.verboseEnabled) {
+      process.stdout.write("\n");
+    }
+
     Log.debug("Creating transform state");
     Log.pushIndent();
 
-    // Getting command line from process entry arguments
-    const cmdLine = getRbxtsCmdLine();
-
     // Let roblox-ts emit Rojo project warnings
-    Log.trace(
-      `Searching rojo config file path from ${
-        cmdLine.setRojoConfigFilePath !== undefined ? "process arguments" : "the directory"
-      }`,
-    );
+    Log.trace(`Searching rojo config file; project.dir = ${cmdLine.projectDir}`);
     let rojoConfigFilePath = undefined;
     if (cmdLine.setRojoConfigFilePath !== undefined) {
       rojoConfigFilePath = path.resolve(cmdLine.setRojoConfigFilePath);
@@ -79,11 +78,17 @@ export default class TransformerState {
     symbolProvider.loadSymbols();
     this.symbolProvider = symbolProvider;
 
-    Log.info("Setting up macro symbols");
-    this.setupMacros();
+    if (symbolProvider.isLoaded()) {
+      Log.info("Setting up macro symbols");
+      this.setupMacros();
+    }
 
     Log.popIndent();
     Log.debug("Successfully created transformer state");
+  }
+
+  public canTransform() {
+    return this.symbolProvider.isLoaded();
   }
 
   private setupMacros() {

@@ -24,7 +24,13 @@ export class TransformerError extends BaseError {
   }
 
   public isABug() {
-    return this.kind === ErrorKind.NotImplemented;
+    switch (this.kind) {
+      case ErrorKind.NotImplemented:
+      case ErrorKind.IndexFileNotResolved:
+        return true;
+      default:
+        return false;
+    }
   }
 
   public toString() {

@@ -4,6 +4,7 @@
 
 # Build files
 *.tgz
+*.js
 
 # rbxts dump
 **/include
@@ -13,3 +14,14 @@
 
 # Typescript cache
 *.tsbuildinfo
+
+# I primarily bun but there are some issues that needs
+# to be resolved from Bun in order to release its Windows version
+#
+# I wish there's Roblox CI for Linux. The development of
+# Ribobn is not ready for production purposes anyway.
+yarn.lock
+
+# Roblox files
+*.rbxlx
+*.rbxl

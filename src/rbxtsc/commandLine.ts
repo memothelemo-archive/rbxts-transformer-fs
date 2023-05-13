@@ -8,6 +8,7 @@ export interface RbxtsCommandLine {
   readonly projectDir: string;
   readonly setRojoConfigFilePath?: string;
   readonly tsConfigPath: string;
+  readonly verboseEnabled: boolean;
 }
 
 type Writable<T extends object> = {
@@ -25,11 +26,12 @@ function findTSConfigFromDir(dir: string) {
   return resolved_dir;
 }
 
-export function getRbxtsCmdLine() {
+function loadRbxtsCmdLine() {
   const cmdLine = {} as Writable<RbxtsCommandLine>;
 
   const projectIdx = process.argv.findIndex(x => x === "-p" || x === "--project");
   const projectDir = projectIdx !== -1 ? process.argv[projectIdx + 1] : ".";
+  const verboseEnabled = process.argv.findIndex(x => x === "--verbose") !== -1;
 
   // projectDir may be a null value, but typescript says it is a string type.
   // you cannot guarantee indexing any number of array exists
@@ -48,6 +50,9 @@ export function getRbxtsCmdLine() {
 
   cmdLine.projectDir = path.resolve(projectDir);
   cmdLine.tsConfigPath = resolvedTSConfigPath;
+  cmdLine.verboseEnabled = verboseEnabled;
 
   return cmdLine as RbxtsCommandLine;
 }
+
+export const RbxtsCommandLine = loadRbxtsCmdLine();

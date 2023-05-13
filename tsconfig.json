@@ -9,9 +9,6 @@
     "skipLibCheck": true,
     "downlevelIteration": true,
     "types": ["@types/node"]
-	},
-  "exclude": [
-    "old/**/**",
-    "test/**/**"
-  ]
+  },
+  "exclude": ["tests/**"]
 }
